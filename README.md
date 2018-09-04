@@ -11,7 +11,7 @@ This was written to allow easier writing of bots or chat logs. Make sure to fami
 [doc]: http://discordpy.rtfd.org/en/latest
 ## INORMATION DE BASE
 Je ne fais aucun support pour ce Bot. je fournis ici seulement mon code de base à vous à éditer comme bon vous semble. 
-Une connaissance en language Python avancé est extrêmement recommandée.
+Une connaissance en Python avancé est extrêmement recommandée.
 
 I do not support this Bot. I provide here only my basic code for you to edit as you see fit.
 Advanced Python language knowledge is highly recommended.
