@@ -16,6 +16,15 @@ Une connaissance en Python avancé est extrêmement recommandée.
 I do not support this Bot. I provide here only my basic code for you to edit as you see fit.
 Advanced Python language knowledge is highly recommended.
 
+Un edit est à faire par vous
+```
+# CODE A EDIT
+```
+
+Un edit n'est pas à faire par vous
+```
+# RIEN A EDIT DANS CE CODE
+```
 
 ## Installing
 
