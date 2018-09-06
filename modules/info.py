@@ -1,4 +1,3 @@
-# RIEN A EDIT DANS CE CODE
 
 from datetime import datetime
 import time
@@ -66,6 +65,7 @@ class Information:
         title = 'Stats pour ' + self.bot.user.name
         desc = 'Ne-e-e-e-e-e regarde pas mes stats... Trouduc!'
         url = "https://github.com/dearvoodoo/"
+        # trello = "Add Later"
         inviteurl = (
             "http://dear-voodoo.com"
         )
@@ -74,11 +74,12 @@ class Information:
 
         em = dmbd.newembed(author, title, desc, url)
         em.add_field(name='Utilisateur(s) Total', value=self.gettotalusers())
-        em.add_field(name='Serveur(s) avec le bot de VooDoo', value=len(self.bot.servers))
+        em.add_field(name='Serveur(s) avec RED', value=len(self.bot.servers))
         em.add_field(name='Utilisateur(s) sur ce serveur', value=len(ctx.message.server.members))
         em.add_field(name='Uptime', value=self.getuptime())
         em.add_field(name='CPU', value="{0:.2f}%".format(self.getcpuusage()))
         em.add_field(name='Mémoire', value="{0:.2f} MB".format(self.getmemusage()))
+        # em.add_field(name='Trello', value='[Trello Page]({})'.format(trello))
         em.add_field(name='Le DEV', value='[Clique sur moi :)]({})'.format(inviteurl))
         em.add_field(name='Support', value='[Lien Discord]({})'.format(supporturl))
 

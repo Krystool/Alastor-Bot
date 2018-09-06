@@ -1,5 +1,3 @@
-# RIEN A EDIT DANS CE CODE
-
 import discord
 # from __main__ import settings
 import asyncio

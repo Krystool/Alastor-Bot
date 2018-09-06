@@ -1,5 +1,3 @@
-# CODE A EDIT
-
 # Base import
 import discord  # discord api
 from discord.ext import commands  # commands extension
@@ -10,6 +8,16 @@ import urllib.request
 from datetime import datetime
 import time
 
+# Config
+import configparser
+config = configparser.ConfigParser()
+config.read("config.ini")
+API_KEY = config["YOUTUBE"]["api_key"]
+CHANNEL_ID = config["YOUTUBE"]["youtube_channel_id"]
+YT_G_URL = config["YOUTUBE"]["youtube_gaming_url"]
+ADMIN_RANK = config["GENERAL"]["admin"]
+MODO_RANK = config["GENERAL"]["modo"]
+
 # Module specific import
 class Youtube:
     """General commands."""
@@ -18,12 +26,10 @@ class Youtube:
         self.bot = bot
 
     @commands.command(pass_context=True, aliases=['a'])
-    @commands.has_any_role("Modo", "Admin") # Mettre vos grades
-    async def annonce(self, ctx, message, vidid):
+    @commands.has_any_role(MODO_RANK, ADMIN_RANK)
+    async def tannonce(self, ctx, message, vidid):
         """Créer une annonce de vidéo/live youtube"""
-        key = "API_KEY" # API KEY YOUTUBE
-        channelid = "ID_DE_LA_CHAINE" # ID de la chaine youtube
-        data = urllib.request.urlopen("https://www.googleapis.com/youtube/v3/videos?part=snippet&id="+vidid+"&key="+key).read()
+        data = urllib.request.urlopen("https://www.googleapis.com/youtube/v3/videos?part=snippet&id="+vidid+"&key="+API_KEY).read()
         titre = json.loads(data)["items"][0]["snippet"]["title"]
         miniature = json.loads(data)["items"][0]["snippet"]["thumbnails"]["maxres"]["url"]
         uploaddate = json.loads(data)['items'][0]['snippet']['publishedAt']
@@ -31,12 +37,12 @@ class Youtube:
         uploader = json.loads(data)["items"][0]["snippet"]["channelTitle"]
 
         # Photo de profil
-        data2 = urllib.request.urlopen("https://www.googleapis.com/youtube/v3/channels?part=snippet&id="+channelid+"&key="+key).read()
+        data2 = urllib.request.urlopen("https://www.googleapis.com/youtube/v3/channels?part=snippet&id="+CHANNEL_ID+"&key="+API_KEY).read()
         PP = json.loads(data2)["items"][0]["snippet"]["thumbnails"]["high"]["url"]
 
         # Lien
-        follow = "https://www.youtube.com/channel/"+channelid+"?sub_confirmation=1"
-        sub = "https://gaming.youtube.com/USER/live?&action=sponsor" # Remplace USER par le nom de la chain Youtube Gaming
+        follow = "https://www.youtube.com/channel/"+CHANNEL_ID+"?sub_confirmation=1"
+        sub = YT_G_URL+"?&action=sponsor"
 
         YT = discord.Embed(title=f":tada: **{titre}**", colour=discord.Colour(value=0xf30000))
         YT.set_thumbnail(url=f"{PP}")

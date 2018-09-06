@@ -1,6 +1,3 @@
-# CODE A EDIT
-
-
 # COLOR RARITY
 # COMMON = 0x727272
 # UNCOMMON = 0x3c6f00
@@ -25,13 +22,21 @@ import requests as req
 import fnbr
 import pynite
 
+# Config
+import configparser
+config = configparser.ConfigParser()
+config.read("config.ini")
+API_KEY_STATS = config["FORTNITE"]["fortnitetracker"]
+API_KEY_SHOP = config["FORTNITE"]["fnbr"]
+API_KEY_STATUS = config["FORTNITE"]["fortniteapi"]
+FR_CHAN = config["FORTNITE"]["fortnite_channel"]
+
 class Fortnite:
     """General commands."""
 
     def __init__(self, bot):
         self.bot = bot
-        self.client = pynite.Client('VOTRE_API_KEY', timeout=5) # Mettre l'API_KEY Fortnite de ce site https://fortnitetracker.com/site-api (API KEY DES STATS)
-
+        self.client = pynite.Client(API_KEY_STATS, timeout=5)
 
 # Random Drop
     @commands.command(pass_context=True)
@@ -52,8 +57,7 @@ class Fortnite:
 # Shop
     @commands.command(pass_context=True)
     async def shop(self, ctx):
-        apikey = 'VOTRE_API_KEY' # Mettre l'API_KEY Fortnite de ce site https://fnbr.co/api/docs (API KEY POUR LE SHOP)
-        request = fnbr.Shop(apikey)
+        request = fnbr.Shop(API_KEY_SHOP)
         response = request.send()
         if response.status == 200 and response.type == fnbr.constants.SHOP_TYPE:
             shop = response.data
@@ -159,7 +163,7 @@ class Fortnite:
     	st_embed.add_field(name="Kills: ", value="{}".format(lifetime[10].value))
 
     	await self.bot.delete_message(ctx.message)
-    	await self.bot.send_message(self.bot.get_channel('1234567890'), ctx.message.author.mention, embed=st_embed) # Mettre l'ID du channel Fortnite
+    	await self.bot.send_message(self.bot.get_channel(FR_CHAN), ctx.message.author.mention, embed=st_embed)
 
 # Weapons List
     @commands.command(pass_context=True)
@@ -221,7 +225,7 @@ class Fortnite:
     @commands.command(pass_context=True)
     async def frstatus(self, ctx):
         st_url = "https://fortnite-public-api.theapinetwork.com/prod09/status/fortnite_server_status"
-        st_headers = {'Authorization': 'VOTRE_ZPI_KEY'} # Mettre l'API_KEY Fortnite de ce site https://fortniteapi.com (API KEY POUR SAVOIR SI LES SERVEURS FORTNITE SONT EN LIGNE OU HORS LIGNE)
+        st_headers = {'Authorization': API_KEY_STATUS}
         st_data = req.post(st_url, headers=st_headers)
         st_json = json.loads(st_data.content.decode("utf-8"))
         UPorDOWN = st_json["status"]
@@ -237,7 +241,7 @@ class Fortnite:
         	colour=random.randint(0, 16777215)
         )
         await self.bot.delete_message(ctx.message)
-        await self.bot.send_message(self.bot.get_channel('134567890'), ctx.message.author.mention, embed=st_embed) # Mettre l'ID du channel Fortnite
+        await self.bot.send_message(self.bot.get_channel(FR_CHAN), ctx.message.author.mention, embed=st_embed)
 
 def setup(bot):
     """Setup Fortnite.py"""

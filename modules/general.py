@@ -1,5 +1,3 @@
-# RIEN A EDIT DANS CE CODE
-
 # Base import
 import discord
 from discord.ext import commands

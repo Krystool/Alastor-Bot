@@ -1,4 +1,4 @@
-# CODE A EDIT
+# For check role @commands.has_role("name")
 
 # Base import
 import discord
@@ -15,6 +15,15 @@ from random import choice as randchoice
 import requests
 from bs4 import BeautifulSoup
 
+# Config
+import configparser
+config = configparser.ConfigParser()
+config.read("config.ini")
+ADMIN_RANK = config["GENERAL"]["admin"]
+MODO_RANK = config["GENERAL"]["modo"]
+VIP_PLUS_RANK = config["GENERAL"]["vip_plus"]
+VIP_RANK = config["GENERAL"]["vip"]
+
 class Random:
     """Random commands."""
 
@@ -23,7 +32,7 @@ class Random:
 
 # Say random cat images
     @commands.command(pass_context=True, aliases=['chat', 'minou'])
-    @commands.has_any_role("VIP", "MODO", "ADMIN") # A EDIT Mettre vos grades
+    @commands.has_any_role(ADMIN_RANK, MODO_RANK, VIP_PLUS_RANK, VIP_RANK)
     async def cat(self, ctx):
         """ Lorsque les utilisateurs tapent !cat, renvoyer un lien de chat """
         req = requests.get('http://thecatapi.com/api/images/get.php')
@@ -41,7 +50,7 @@ class Random:
 
 # Say random dog images
     @commands.command(pass_context=True, aliases=['chien', 'toutou'])
-    @commands.has_any_role("VIP", "MODO", "ADMIN") # A EDIT Mettre vos grades
+    @commands.has_any_role(VIP_RANK, VIP_PLUS_RANK, MODO_RANK, ADMIN_RANK)
     async def dog(self, ctx):
         """Lorsque les utilisateurs tapent !dog, renvoyer un lien de chien"""
 
@@ -58,6 +67,12 @@ class Random:
         em.set_image(url=rngdog)
         await self.bot.delete_message(ctx.message)
         await self.bot.say(embed=em)
+
+# Reverse le texte
+    @commands.command(pass_context=True)
+    async def reverse(self, ctx, *, Message:str):
+        """La chose que vous m'avez dite, mais .. à l'envers."""
+        await self.bot.say(u"\u200B" + Message[::-1])
 
 
 

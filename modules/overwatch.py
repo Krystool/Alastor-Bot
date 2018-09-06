@@ -1,4 +1,4 @@
-# CODE A EDIT
+""" Overwatch API usage"""
 
 import random
 import requests
@@ -11,6 +11,12 @@ from utility import discordembed as dmbd
 from random import choice as randchoice
 from time import strftime
 
+# Config
+import configparser
+config = configparser.ConfigParser()
+config.read("config.ini")
+OW_CHANNEL = config["OVERWATCH"]["overwatch_channel"]
+ID_VOODOO = config["GENERAL"]["voodoo"]
 
 class Overwatch:
 
@@ -38,6 +44,10 @@ class Overwatch:
         msg = 'Joue '
         author = ctx.message.author
         em = dmbd.newembed(author, msg + randchoice(self.heroes))
+        am = dmbd.newembed(author, msg + "Hanzo")
+        if author.id == ID_VOODOO:
+            await self.bot.delete_message(ctx.message)
+            await self.bot.say(embed=am)
         await self.bot.delete_message(ctx.message)
         await self.bot.say(embed=em)
 
@@ -164,7 +174,7 @@ class Overwatch:
         st_embed.add_field(name="Bronze/Argent/Or: ",
     						value=f"QuickPlay: {QP_medalsBronze}/{QP_medalsSilver}/{QP_medalsGold} \n Ranked: {RK_medalsBronze}/{RK_medalsSilver}/{RK_medalsGold}")
         await self.bot.delete_message(ctx.message)
-        await self.bot.send_message(self.bot.get_channel('1234567890'), ctx.message.author.mention, embed=st_embed) # Mettre l'ID du channel où les stats sont envoyés
+        await self.bot.send_message(self.bot.get_channel(OW_CHANNEL), ctx.message.author.mention, embed=st_embed)
 
 def setup(bot):
     """ Setup OW Module"""

@@ -1,7 +1,10 @@
-
+import configparser
+config = configparser.ConfigParser()
+config.read("config.ini")
+OWNER = config["GENERAL"]["owner"]
 def checkdev(message):
     """Checks if the developer used the command. AKA ME"""
-    return message.author.id == "1234567890" # Mettre votre ID Discord
+    return message.author.id == OWNER
 
 def checkignorelist(message, ignore):
     """If on the list, return true; if not, return false."""

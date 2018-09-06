@@ -1,5 +1,3 @@
-
-
 def checkignorelistevent(chan):
     # checkignorelist given a channel.
     for serverid in ignore["servers"]:
