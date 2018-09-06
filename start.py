@@ -32,7 +32,8 @@ startup_extensions = [
     'modules.socialnetwork',
     'modules.poll',
     'modules.overwatch',
-    'modules.random'
+    'modules.random',
+    'modules.youtube'
 ]
 
 # Config for command and prefix
