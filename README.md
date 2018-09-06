@@ -145,14 +145,14 @@ Commande | Description
 --- | --- 
 !owrng | Donne un perso random.
 !owteam | Donne une team random.
-!owstats <region (eu/us/asia)> <BattleTag (TonPseudo#12345)> | Donne les stats du joueur. (Ne fonctionne pas si toutes les stats ranked ne sont pas complètes.) PC uniquement
+!owstats <region (eu/us/asia)> <BattleTag "TonPseudo#12345"> | Donne les stats du joueur. (Ne fonctionne pas si toutes les stats ranked ne sont pas complètes.) PC uniquement
 
 ### Fortnite
 Commande | Description
 --- | --- 
 !rdrop | Donne une ville random pour drop.
 !shop | Vous MP la boutique du jour.
-!stats <Platform (pc/psn/xbl)> <Pseudo EpicGames> | Donne les stats dans le channel #fortnite ⚠ le pseudo doit être entre guillemets.
+!stats <pc/psn/xbl> "Pseudo EpicGames" | Donne les stats dans le channel #fortnite ⚠ le pseudo doit être entre guillemets.
 !wlist | Vous MP la liste des armes IG.
 !frstatus | Affiche si les serveurs Fortnite sont En ligne ou Hors ligne.
 
