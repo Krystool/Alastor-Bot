@@ -121,7 +121,7 @@ Commande | Description
 --- | --- 
 !PoF | Poop ou Face.
 !gn <Utilisateur> | Dire Bonne Nuit avec le bot.
-!pfc <pierre|feuille|ciseaux> | Pierre Feuille Ciseaux.
+!pfc <pierre/feuille/ciseaux> | Pierre Feuille Ciseaux.
 !roll | Lance un dé et affiche le resultat.
 !ping | Pong !
 !bstats | Stats du bot.
@@ -145,7 +145,7 @@ Commande | Description
 --- | --- 
 !owrng | Donne un perso random.
 !owteam | Donne une team random.
-!owstats <region (eu|us|asia)> <BattleTag (TonPseudo#12345)> | Donne les stats du joueur. (Ne fonctionne pas si toutes les stats ranked ne sont pas complètes.) PC uniquement
+!owstats <region (eu/us/asia)> <BattleTag (TonPseudo#12345)> | Donne les stats du joueur. (Ne fonctionne pas si toutes les stats ranked ne sont pas complètes.) PC uniquement
 
 ### Fortnite
 Commande | Description
