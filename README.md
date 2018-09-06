@@ -167,3 +167,4 @@ Commande | Description
 Commande | Description
 --- | --- 
 !annonce "Votre texte d'annonce" <code vidéo> | Le bot va faire l'annonce automatiquement à votre place (avec un everyone + votre texte d'annonce.)
+!annonce "Voici un test d'annonce via le bot" Ekrh04BeJ7U | ![alt text](https://image.ibb.co/gSwEFK/annonce_preview.png "Preview de la commande !annonce")
