@@ -9,19 +9,23 @@ discord.py is an API wrapper for Discord written in Python.
 This was written to allow easier writing of bots or chat logs. Make sure to familiarise yourself with the API using the [documentation][doc].
 
 **Légende:**
-- [Information de base](https://github.com/dearvoodoo/discord-bot-base#inormation-de-base)
+- [Information de base](https://github.com/dearvoodoo/discord-bot-base#information-de-base)
+- [Hosting](https://github.com/dearvoodoo/discord-bot-base#hosting)
 - [Installing](https://github.com/dearvoodoo/discord-bot-base#installing)
 - [Requirements](https://github.com/dearvoodoo/discord-bot-base#requirements)
 - [Configuration](https://github.com/dearvoodoo/discord-bot-base#configuration)
 - [Commandes](https://github.com/dearvoodoo/discord-bot-base#commandes)
 
 [doc]: http://discordpy.rtfd.org/en/latest
-## INORMATION DE BASE
+## INFORMATION DE BASE
 Je ne fais aucun support pour ce Bot. je fournis ici seulement mon code de base à vous à éditer comme bon vous semble. 
 Une connaissance en Python avancé est extrêmement recommandée.
 
 I do not support this Bot. I provide here only my basic code for you to edit as you see fit.
 Advanced Python language knowledge is highly recommended.
+
+## Hosting
+Hébergement possible sur Heroku.com Le fichier pour le Dynos (worker) est déjà dans les fichiers.
 
 ## Installing
 
