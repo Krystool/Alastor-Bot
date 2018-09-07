@@ -1,8 +1,8 @@
 # discord.py
 
-[![PyPI](https://img.shields.io/pypi/v/discord.py.svg)](https://pypi.python.org/pypi/discord.py/)
+[![Discord.py](https://img.shields.io/badge/Discord.py-0.16.6-green.svg)](https://pypi.python.org/pypi/discord.py/)
 
-[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg)](https://pypi.python.org/pypi/discord.py/)
+[![Python Version](https://img.shields.io/badge/Python-3.6.5%2B-blue.svg)](https://www.python.org)
 
 discord.py is an API wrapper for Discord written in Python.
 
@@ -33,7 +33,7 @@ python3 -m pip install -U discord.py
 
 ## Requirements
 
-- Python 3.4.2+
+- Python 3.6.5+
 - All Requirements in requirements.txt
 
 Usually `pip` will handle these for you.
